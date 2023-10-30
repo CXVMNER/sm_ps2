@@ -4,11 +4,21 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String KEY_CURRENT_INDEX = "currentIndex";
+    private static final String QUIZ_TAG = "QuizLog";
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(QUIZ_TAG, "Wywołana została metoda: onSaveInstanceState");
+        outState.putInt(KEY_CURRENT_INDEX, currentIndex);
+    }
     private TextView questionTextView;
 
     private final Question[] questions = new Question[] {
@@ -36,9 +46,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity", "onStart called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MainActivity", "onResume called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MainActivity", "onPause called");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity", "onStop called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("MainActivity", "onDestroy called");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(QUIZ_TAG, "Wywołana została metoda cyklu życia: on Create");
         setContentView(R.layout.activity_main);
+
+        if(savedInstanceState != null) {
+            currentIndex = savedInstanceState.getInt(KEY_CURRENT_INDEX);
+        }
 
         Button trueButton = findViewById(R.id.true_button);
         Button falseButton = findViewById(R.id.false_button);
