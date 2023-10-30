@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">sm_ps2</string>
+    <string name="app_name">sm_ps1_quiz</string>
+
+    <string name="button_true">Prawda</string>
+    <string name="button_false">Fałsz</string>
+    <string name="button_next">Następne</string>
+
+    <string name="correct_answer">Poprawna odpowiedź!</string>
+    <string name="incorrect_answer">Niepoprawna odpowiedź.</string>
+
+    <string name="q_ziemia">Ziemia jest płaska</string>
+    <string name="q_angielski">Angielski jest językiem międzynarodowym</string>
+    <string name="q_ms">Microsoft stworzył system Windows</string>
+    <string name="q_apple">Apple stworzyło system Android</string>
+    <string name="q_bsd">Android jest oparty na BSD</string>
+
 </resources>
